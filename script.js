@@ -38,3 +38,4 @@ function updateCountdown() {
 // Update countdown every second
 setInterval(updateCountdown, 1000);
 updateCountdown(); // Initial call to display the countdown immediately
+
