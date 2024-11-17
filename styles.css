@@ -1,0 +1,76 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black; /* Black background */
+    color: white; /* White text */
+    font-family: 'Orbitron', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Main container to hold buttons and counter */
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+}
+
+/* Styling for the big buttons */
+.big-button {
+    font-size: 3rem;
+    color: white;
+    background-color: #1e90ff; /* Blue for +1 */
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    width: 20%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.big-button:hover {
+    background-color: #1c77c3; /* Slightly darker blue on hover */
+}
+
+#resetBtn {
+    background-color: red; /* Red for RESET button */
+}
+
+#resetBtn:hover {
+    background-color: #c54c43; /* Darker red on hover */
+}
+
+/* Styling for the counter display */
+.counter {
+    font-size: 5rem;
+    font-weight: bold;
+    width: 20%;
+    text-align: center;
+}
+
+/* Responsiveness for mobile view */
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .big-button {
+        width: 80%;
+    }
+
+    .counter {
+        width: 80%;
+    }
+}
