@@ -1,76 +1,81 @@
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* General styles */
 body {
-    background-color: black; /* Black background */
-    color: white; /* White text */
-    font-family: 'Orbitron', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
-
-/* Main container to hold buttons and counter */
-.container {
+    font-family: Arial, sans-serif;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 80%;
-}
-
-/* Styling for the big buttons */
-.big-button {
-    font-size: 3rem;
+    height: 100vh;
+    margin: 0;
+    background-color: #282c34;
     color: white;
-    background-color: #1e90ff; /* Blue for +1 */
+}
+
+/* +1 button */
+.plus-button {
+    font-size: 2rem;
+    background-color: blue;
+    color: white;
     border: none;
-    border-radius: 10px;
-    padding: 20px;
-    width: 20%;
+    padding: 20px 40px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    border-radius: 10px;
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
-.big-button:hover {
-    background-color: #1c77c3; /* Slightly darker blue on hover */
-}
-
-#resetBtn {
-    background-color: red; /* Red for RESET button */
-}
-
-#resetBtn:hover {
-    background-color: #c54c43; /* Darker red on hover */
-}
-
-/* Styling for the counter display */
-.counter {
-    font-size: 5rem;
-    font-weight: bold;
-    width: 20%;
+/* Counter display */
+.counter-display {
+    font-size: 3rem;
+    color: black;
     text-align: center;
+    margin: 0 auto;
 }
 
-/* Responsiveness for mobile view */
-@media screen and (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        gap: 20px;
-        justify-content: center;
-        align-items: center;
+/* Reset button */
+.reset-button {
+    font-size: 2rem;
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 20px 40px;
+    cursor: pointer;
+    border-radius: 10px;
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Countdown box */
+.countdown-box {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .plus-button, .reset-button {
+        font-size: 1.5rem;
+        padding: 15px 25px;
     }
 
-    .big-button {
-        width: 80%;
+    .counter-display {
+        font-size: 2.5rem;
     }
 
-    .counter {
-        width: 80%;
+    .countdown-box {
+        font-size: 1.2rem;
+        padding: 15px;
     }
 }
+
