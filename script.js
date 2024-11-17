@@ -1,31 +1,40 @@
-// Get the references to HTML elements
-const incrementBtn = document.getElementById('incrementBtn');
-const resetBtn = document.getElementById('resetBtn');
-const counterValue = document.getElementById('counter');
+// Get references to the HTML elements
+const plusButton = document.getElementById('plus1');
+const resetButton = document.getElementById('reset');
+const counterDisplay = document.getElementById('counter');
+const daysRemainingDisplay = document.getElementById('days-remaining');
 
-// Load the saved counter value from localStorage
-function loadCounter() {
-    const savedCounter = localStorage.getItem('counter');
-    if (savedCounter !== null) {
-        counterValue.textContent = savedCounter; // Load saved value
-    } else {
-        counterValue.textContent = '0'; // Default to 0 if no value is saved
-    }
+// Initialize counter from localStorage
+let counter = localStorage.getItem('counter') ? parseInt(localStorage.getItem('counter')) : 0;
+counterDisplay.textContent = counter;
+
+// Add event listener for the +1 button
+plusButton.addEventListener('click', () => {
+    counter++;
+    counterDisplay.textContent = counter;
+    localStorage.setItem('counter', counter);
+});
+
+// Add event listener for the reset button
+resetButton.addEventListener('click', () => {
+    counter = 0;
+    counterDisplay.textContent = counter;
+    localStorage.setItem('counter', counter);
+});
+
+// Countdown to January 1st
+function updateCountdown() {
+    const currentDate = new Date();
+    const nextYear = new Date(currentDate.getFullYear() + 1, 0, 1); // January 1st of the next year
+    const timeRemaining = nextYear - currentDate;
+
+    // Calculate the number of days remaining
+    const daysRemaining = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+
+    // Display the countdown in the countdown box
+    daysRemainingDisplay.textContent = `Days until January 1: ${daysRemaining}`;
 }
 
-// Increment counter by 1
-incrementBtn.addEventListener('click', () => {
-    let currentCount = parseInt(counterValue.textContent);
-    currentCount++;
-    counterValue.textContent = currentCount;
-    localStorage.setItem('counter', currentCount); // Save updated count
-});
-
-// Reset counter to 0
-resetBtn.addEventListener('click', () => {
-    counterValue.textContent = '0';
-    localStorage.setItem('counter', '0'); // Save reset value
-});
-
-// Load counter when the page loads
-window.onload = loadCounter;
+// Update countdown every second
+setInterval(updateCountdown, 1000);
+updateCountdown(); // Initial call to display the countdown immediately
